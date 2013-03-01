@@ -1,0 +1,287 @@
+/* @override http://servernewemage.local/vivilox/css/estilos2.css */
+
+/* @override http://servernewemage.local/vivilox/css/estilos2.css */
+
+/* @override http://servernewemage.local/vivilox/css/estilos2.css */
+
+/* @override http://servernewemage.local/vivilox/css/estilos.css */
+
+#logo a {
+	background: url(../img/logo.png) no-repeat;
+	width: 211px;
+	height: 67px;
+	display: block;
+	margin-top: 20px;
+}
+
+nav ul li{
+	display: inline-block;
+	padding-right: 7px;
+	padding-left: 7px;
+	border-right: 1px solid #383838;
+}
+
+#main-menu nav.span9 ul {
+	margin: 0;
+}
+
+nav ul li a{
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 54px;
+	margin-right: 7px;
+	margin-left: 7px;
+}
+
+#main-menu {
+	background-color: #000;
+	border-top: 4px solid #d90f0d;
+}
+
+header {
+	height: 175px;
+}
+
+div#top-header.row {
+	height: 115px;
+}
+
+
+#top-menu ul li {
+	display: inline-block;
+	border-right: 1px solid #e1dddd;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+#top-menu ul {
+	margin: 40px 0 0;
+}
+
+#top-menu ul li a{
+	color: #5f5f5f;
+	font-size: 20px;
+}
+
+#user-login ul li {
+	display: inline-block;
+}
+
+#user-login ul li a{
+	color: #2b2c2b;
+	font-size: 12px;
+}
+
+#user-login ul {
+	float: right;
+}
+
+div#user-login.span4 {
+	margin-top: 10px;
+}
+
+a.user-login {
+	background: url(../img/icon-login.png) no-repeat left center;
+	padding: 5px 5px 5px 22px;
+
+}
+
+a.user-reg {
+	background: url(../img/icon-reg.png) no-repeat left center;
+	padding: 5px 5px 5px 22px;
+}
+/************************************Estilos Josue***************************************/
+footer {
+	background-color: #6e6e6e;
+	color: #fff;
+	position: relative;
+	padding: 10px 10px 20px;
+}
+
+#footer-menu li {
+	float: left;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+#footer-menu li a {
+	padding-right: 5px;
+	border-right: 1px solid #fff;
+}
+
+#footer-menu {
+	width: 365px;
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#footer-menu li a.last {
+	border: none;
+}
+
+#copyright p {
+	position: absolute;
+	right: 15px;
+	bottom: 15px;
+	margin-bottom: 0;
+}
+a.twt-button:hover{
+	background-position: 0 bottom;
+	text-decoration: none;
+}
+a.twt-button {
+	display: block;
+	background: url(../img/twt-folow.png) no-repeat 0 top;
+	width: 180px;
+	color: #fff;
+	height: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 30px;
+	text-align: center;
+	text-shadow:  1px 1px 0px #777;
+}
+footer ul{
+	margin-left: 0px;
+}
+footer li{
+	list-style-type: none;
+	}
+footer li a{
+	font-size: 13px;
+	color: #fff;
+}
+
+h4.fb {
+	background: url(../img/title-fb.png) no-repeat;
+	height: 31px;
+	padding-left: 36px;
+}
+
+footer h4 {
+	font-size: 15px;
+	padding-top: 5px;
+}
+
+h4.tweet {
+	background: url(../img/title-twt.png) no-repeat;
+	height: 31px;
+	padding-left: 45px;
+}
+a.google:hover,
+a.twt:hover,
+a.fb:hover{
+	background-position: 0 bottom;
+}
+a.fb{
+	width: 28px;
+	height: 27px;
+	float: left;
+	background: url(../img/icon-fb.png) 0 top;
+	margin-right: 10px;
+}
+a.twt{
+	width: 28px;
+	height: 27px;
+	float: left;
+	background: url(../img/icon-twt.png) 0 top;
+	margin-right: 10px;
+}
+a.google{
+	width: 28px;
+	height: 26px;
+	float: left;
+	background: url(../img/icon-ggl.png) no-repeat 0 top;
+}
+
+#icons {
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
+	width: 106px;
+	text-align: center;
+}
+/*****************************************Brief-form************************************/
+ul.steps {
+	overflow: hidden;
+	margin-left: 0;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+form#step-one.span6 {
+	margin-top: 15px;
+}
+
+#step-one select {
+	margin-left: 85px;
+	margin-bottom: 11px;
+}
+#step-three h3 span,
+#step-two h3 span,
+#step-one h3 span {
+	font-weight: normal;
+	font-style: normal;
+	font-size: 13px;
+}
+
+a.paypal-button {
+	background-color: #e3e3e3;
+	color: gray;
+	padding: 10px 15px;
+	float: left;
+	margin-right: 32px;
+}
+#step-two h3,
+#step-one h3 {
+	line-height: 25px;
+}
+
+a.next-step {
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #fff;
+	background-color: #000;
+	padding: 5px 10px;
+	float: right;
+}
+
+#step-one input {
+	height: 30px;
+
+}
+
+ a.morefiles {
+	display: block;
+	font-size: 11px;
+	color: gray;
+}
+ul.steps li a {
+	color: #000;
+	width: 100%;
+	display: block;
+	padding-top: 5px;
+	padding-left: 10px;
+	padding-bottom: 5px;
+	font-weight: bold;
+	font-size: 15px;
+	text-transform: uppercase;
+	background-color: #ececec;
+	border: 1px solid #e3e3e3;
+}
+
+ul.steps li.span4 {
+	margin-left: 0;
+	list-style-type: none;
+}
+ul.steps a.active {
+	background-color: #000;
+	color: #fff;
+}
+
+#step-two {
+}

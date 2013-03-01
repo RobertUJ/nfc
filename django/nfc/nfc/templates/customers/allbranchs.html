@@ -1,0 +1,39 @@
+{% extends 'bases/template_base.html' %}
+{% block title %} 701010 :: CONNECT YOUR BUSINESS {% endblock %}
+
+{% block content %}	
+{% load thumbnail %}
+
+<div class="container customer">
+	
+	{% for b  in branchs %}
+		<div class="row">
+			<div class="span4">
+				<a href="/{{b.Customer.slug}}/{{b.ZipCode.zipcode}}/{{b.slug}}/">	
+					{% thumbnail b.Logo "210x155" crop="50% center" as im %}
+						<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{b.Title}}">
+					{% empty %}
+					<img src="{{ MEDIA_URL }}no_logo.jpg" alt="{{b.Title}}">
+					{% endthumbnail %}
+				</a>
+			</div>
+			<div class="span6">
+				<p>
+					{% autoescape off %}
+						{{b.Description|truncatewords_html:40 }}
+					{% endautoescape %}
+					
+				</p>
+			</div>
+			<div class="span2">
+				<a class="btn_link" href="/{{b.Customer.slug}}/{{b.ZipCode.zipcode}}/{{b.slug}}/">Entrar</a>
+			</div>
+		</div>
+		<hr>
+	{% empty %}
+		No Branch
+	{% endfor %}
+
+</div>
+
+{% endblock content %}

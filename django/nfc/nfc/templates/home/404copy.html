@@ -1,0 +1,105 @@
+{% extends 'bases/home_base.html' %}
+{% block title %} 701010 :: CONNECT YOUR BUSINESS {% endblock %}
+
+{% block content %}	
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<div id="sombra">
+		<div id="dim">
+			<div id="layerslider">
+				<div class="ls-layer" rel="slidedelay: 10000;">
+					<img class="ls-bg" src="{{ MEDIA_URL }}branch/galery/slide-1.jpg" alt="sublayer" style="durationin: 2000; easingin: easeOutExpo; slidedirection: top; delayin: 1000">
+					<div class="ls-s2 video" style="left: 430px; top: 30px;">
+						<object width="390" height="230"><param name="movie" value="http://www.youtube.com/v/Xd9pdHyR_A0?version=3&amp;hl=en_US"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/Xd9pdHyR_A0?version=3&amp;hl=en_US" type="application/x-shockwave-flash" width="390" height="230" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+					</div>
+					
+				</div>
+				<div class="ls-layer" rel="slidedelay: 10000;">
+					<img class="ls-bg" src="{{ MEDIA_URL }}branch/galery/slide-2.jpg" alt="sublayer" rel="durationin: 5800; easingin: easeOutQuad">
+					<img class="ls-s4" src="{{ MEDIA_URL }}branch/galery/celular.png" alt="sublayer" style="left: 530px; top 30px;" rel="slidedirection: bottom">
+					<div class="ls-s5" id="texto-screen" style="left: 90px; top: 60px;" rel="durationin: 800; easingin: easeOutQuad; slidedirection: top">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie tortor quis neque faucibus imperdiet. Quisque a erat quis nisi consequat rutrum varius egestas mi.</p>
+						<a href="#" class="slider_read_more">Read more</a>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="span12">
+		<h3 id="featured_text">Featured Clients</h3>
+		</div>
+		{% load thumbnail %}
+		{% for b in branchs %}
+			<div class="span3">
+				<a href="/{{b.Customer.slug}}/{{b.ZipCode.zipcode}}/{{b.slug}}/">
+					<div class="cont_logo">
+						{% thumbnail b.Logo "210x155" crop="50% center" as im %}
+				            <img class="Logo" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{b.Title}}">
+	                    {% empty %}
+	                    	<img src="{{ MEDIA_URL }}no_logo.jpg" alt="{{b.Title}}">
+	                    {% endthumbnail %}
+					</div>
+				</a>
+				<h4 class="img_title">
+					{{b.Title}}
+				</h4>
+				<p class="description">
+					{% autoescape off %}
+						{{b.Description|truncatewords_html:15}}
+					{% endautoescape %}
+				</p>
+				<p>
+					<a class="read_more" href="/{{b.Customer.slug}}/{{b.ZipCode.zipcode}}/{{b.slug}}/">Read More</a>
+				</p>
+			</div>			
+		{% endfor %}
+	</div>
+<hr>
+	<div class="row">
+		<div class="span12">
+			<div class="pagination">
+				<span class="step-links">
+					{% if branchs.has_previous %}
+						<a class="prev_btn" href="?page={{ branchs.previous_page_number }}">Prev</a>
+					{% endif %}
+
+					{% for linkpage in branchs.paginator.page_range %}
+						{% ifequal linkpage branchs.number %}
+							<span class="current">{{ branchs.number }}</span>
+						{% else %}
+							<span class="page"><a href="?page={{ linkpage }}">{{ linkpage }}</a></span>
+						{% endifequal %}
+					{% endfor %}
+					
+					<span>
+						{# {{branchs.paginator}} #}
+					</span>
+					{% if branchs.has_next %}
+						<a class="next_btn" href="?page={{ branchs.next_page_number }}">Next</a>
+					{% endif %}
+				</span>
+			</div>	
+		</div>
+	</div>
+</div>
+	<div class="container">
+		<div class="row">
+		<div class="span6">
+			<a href="#"><img src="/media/banners/banner-701010.jpg"></a>
+		</div>
+		<div class="span6">
+			<a href="#"><img class="espacio" src="/media/banners/b-1.jpg"></a>
+			<a href="#"><img class="espacio" src="/media/banners/b-2.jpg"></a>
+			<a href="#"><img class="espacio" src="/media/banners/b-3.jpg"></a>
+			<a href="#"><img class="espacio" src="/media/banners/b-4.jpg"></a>
+		</div>
+	</div>
+	</div>
+{% endblock %}

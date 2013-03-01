@@ -1,0 +1,29 @@
+{% extends 'bases/home_base.html' %}
+
+{% block title %} Contact Form {% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			{% if info_send %}
+				Thank you for contacting us, we will contact you.
+				<br>
+				Your message is:<br>
+					<p>Name: {{name}}</p>
+					<p>Email: {{email}}</p>
+					<p>Subject: {{subject}}</p>
+					<p>Content: {{content}}</p>
+			{% else %}
+				<form action="." method="POST">
+					{% csrf_token %}
+					{{form.as_p}}
+					<input type="submit" value="Submit">
+					<input type="reset" value="Clear">
+				</form>
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% endblock content %}
+

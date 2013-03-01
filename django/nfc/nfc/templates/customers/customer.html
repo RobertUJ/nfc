@@ -1,0 +1,213 @@
+{% extends 'bases/template_base.html' %}
+{% block title %} 701010 :: CONNECT YOUR BUSINESS {% endblock %}
+
+{% block idbody %}id="{{infobranch.id_body}}"{% endblock idbody %}
+
+{% block content %}	
+{% load thumbnail %}
+<div class="container customer">
+	<div class="row">
+		<div class="span4">
+			<div id="logo">
+				{% thumbnail infobranch.Logo "210x155" crop="50% center" as im %}
+		            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{infobranch.Title}}">
+		        {% empty %}
+		        	<img src="{{ MEDIA_URL }}no_logo.jpg" alt="{{b.Title}}">
+		        {% endthumbnail %}
+			</div>
+			<div id="social_links">
+				{% if infobranch.facebook %}
+					<a href="{{infobranch.facebook}}" id="fb" class="social-iconos" title=""></a>
+				{% endif %}
+
+				{% if infobranch.gmail %}
+					<a href="{{infobranch.gmail}}" id="gplus" class="social-iconos" title=""></a>
+				{% endif %}
+
+				{% if infobranch.twitter %}
+					<a href="{{infobranch.twitter}}" id="tw" class="social-iconos" title=""></a>
+				{% endif %}
+
+				{% if infobranch.mail %}
+					<a href="{{infobranch.mail}}" id="mail" class="social-iconos" title=""></a>
+				{% endif %}
+			</div>
+			{% if infobranch.website %}
+				<a target="_blank" class="link_website" href="{{infobranch.website}}">{{infobranch.website}}</a>
+			{% endif %}
+
+			{% if infobranch.show_dir %}
+				<hr>
+				{% if infobranch.dir_1 %}
+					<p>{{infobranch.dir_1}}</p>
+				{% endif %}
+				{% if infobranch.dir_2 %}
+					<p>{{infobranch.dir_2}}</p>
+				{% endif %}
+				<p>
+				{{infobranch.cd}}, {{infobranch.state}} {{infobranch.zip_code}}
+				</p>
+			{% endif %}
+
+
+		</div>
+	<div class="span8">
+<h2>
+{{infobranch.Title}}
+</h2>
+<p>
+	{% autoescape off %}
+		{{infobranch.Description}}
+	{% endautoescape %}
+	
+</p>
+	</div>
+	</div>
+<hr>
+<div class="row">
+	<div class="span8">
+		{% autoescape off %}
+		    {{infobranch.Video}}
+		{% endautoescape %}
+	</div>
+
+{% if infobranch.Coupon %}	
+<div class="span4">
+
+<div id="cupon">
+<!-- 	 -->
+
+	
+<div id="formPhone">
+	<div style="display:none;" id='cuponCont'>
+		<img src="{{ MEDIA_URL }}{{infobranch.Coupon}}" alt="">
+	</div>
+	<div id="frmCont">
+		
+
+		{% if infobranch.image_cupon %}
+			<img src="{{ MEDIA_URL }}{{infobranch.image_cupon}}" alt="">	
+		{% endif %}
+
+		{% if infobranch.info_cupon %}
+			{{infobranch.info_cupon}}
+		{% endif %}
+
+
+		<a id="btnCupon" href="#">
+			Get my Coupon
+		</a>
+
+		<form style="display:none;" action="." id="frmPhone" method="POST" accept-charset="utf-8">
+				{% csrf_token %}
+				<input type="hidden" id="idBranch" name="branch" value="{{infobranch.id}}" >
+				<label for="">ZIP Code:</label>
+				<input style="width:40%;text-align:center;" id="idZIPcode" type="tel" maxlength="5" onkeypress='javascript:return soloNumeros(event)' name="zipcode" placeholder="eg:12345"  >
+				<div id="cont_mobile">
+				<label id="label_mobile"for="">Mobile Number:</label>
+				<input style="width:20%;text-align:center;" id="idArea" maxlength="3" onkeypress='javascript:return soloNumeros(event)' type="tel" name="area" placeholder="Area" >
+				<input style="width:60%;text-align:center;" id="idMobile" maxlength="7" onkeypress='javascript:return soloNumeros(event)' type="tel" name="mobile" placeholder="Mobile Number" >
+				</div>
+				<input type="submit" id="btnPhone" name="" value="Submit">	
+		</form>
+
+	</div>
+</div>
+
+</div>
+
+
+</div>
+{% endif %}
+</div>
+<hr>
+
+{% if galery %}
+<ul id="scroller" class="jcarousel jcarousel-skin-tango">
+	{% for img in galery %}
+		{% thumbnail img.Image "190x110" crop="50% center" as im %}
+            <li><img class="logo_slide" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{img.Image_Title}}"></li>
+        {% empty %}
+        	<img src="{{ MEDIA_URL }}no_logo.jpg" alt="{{b.Title}}">
+        {% endthumbnail %}
+	{% endfor %}
+</ul> 
+{% endif %}
+
+</div>
+{% endblock %}
+
+{% block footer_extrajs %}
+
+<!-- estilos -->
+{% if infobranch.background_img %}
+	<style type="text/css">
+		body{
+			background:url({{ MEDIA_URL }}{{infobranch.background_img}}) top center no-repeat !important;
+		}
+	</style>
+{% endif %}
+
+	<script type="text/javascript" charset="utf-8" >
+		var id_branch = "{{infobranch.id}}";
+
+		$("#btnPhone").on("click",function(e){
+			e.preventDefault();
+			var _branch = $("#idBranch").val();
+			var _zipcode  = $("#idZIPcode").val();
+			var _mobile = $("#idMobile").val();
+			var _area = $("#idArea").val();
+			var form   = $("#frmPhone");
+
+			var midezipcode	= _zipcode.length;
+			var midemobile 	= _mobile.length;
+			var mideArea 	= _area.length; 
+
+			if(midezipcode >= 5 || midezipcode == 0){
+				
+			}else{
+				alert("Please enter a zipcode valid");	return;
+			}
+
+			if(mideArea != 3){
+				alert("The area number can only be 3 digits");	return;
+			}
+
+			if( midemobile != 7 ){
+				alert("The mobile number can only be 7 digits");	return;	
+			}
+
+			form.submit();
+				
+		});
+
+		$("#btnCupon").on("click",function(e){
+			e.preventDefault();
+			$(this).fadeOut('slow',function(){
+				$("#frmPhone").fadeIn('slow');
+			});
+			
+
+		});
+
+
+function soloNumeros(evt){
+	//asignamos el valor de la tecla a keynum
+	if(window.event){// IE
+		keynum = evt.keyCode;
+	}else{
+		keynum = evt.which;
+	}
+	//comprobamos si se encuentra en el rango
+	if(keynum>47 && keynum<58){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+
+	</script>
+{% endblock footer_extrajs %}
+
+

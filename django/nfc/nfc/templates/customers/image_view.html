@@ -1,0 +1,20 @@
+{% extends 'bases/template_base.html' %}
+{% block title %} 701010 :: CONNECT YOUR BUSINESS {% endblock %}
+
+{% block content %}	
+
+<div class="container">
+<div class="row">
+<div class="span12">
+<img src="{{ MEDIA_URL }}{{ branch.Coupon }}" alt="">
+<br>
+<a id="link_back" href="{{request.get_full_path}}" title="">Back</a> 
+
+<a id="link_home" href=" {% url main_view %} " title="">Home</a>
+
+	</div>
+</div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,26 @@
+• En la aplicacion DJANGO, debera de tener una funcion para habilitar la verificacion de edad. 
+Esto se hara de la siguiente manera: se habilitara por medio de un checkbox, y tendra un 
+cuadro de texto para insertar la edad necesaria para evaluar. Al entrar al url, lo primero 
+que aparecera es una pantalla para verificar la edad del usuario mes/dia/year de 
+nacimiento, con dos botones aceptar y cancelar. Solo permitira abrir la pagina si la edad 
+del usuario es la minima permitida.
+ohttp://nfc.701010.com/heineken/79901/heineken/
+oValidar que se pueda cambiar el rango de edad a solicitar al usuario final antes de 
+ingresar al minisite.
+
+• Recordatorio de que el TAG debe ser alfanumérico.
+
+• Poder manipular el texto del banner de "Get a Coupon", o en su defecto tener para elegir 
+entre "Get a Coupon", "Sweepstakes", "Promotions".
+oOpción de cambiar el texto del botón.
+
+• Poner un checkbox en el area de direccion para poder habilitar o desabilitar que la 
+informacion se ponga automaticamente en la seccion, ademas de la funcion de mapeo en 
+google maps. (Vease Imagen add.png).
+
+• En la pagina nfc.701010.com, en la seccion de featured clients, que todos los clienten 
+aparescan del mismo tamano, ya que algunos son de tamano mas grande. (vease imagen 
+701010 connect ...png).
+
+• Poder duplicar paginas, o crear varias paginas identicas solo modificando el zipcode, sin 
+tener que introducir toda la informacion de nuevo
