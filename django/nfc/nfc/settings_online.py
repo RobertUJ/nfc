@@ -1,4 +1,4 @@
-# Django settings for myproject project.
+# Django settings for nfc project.
 #encoding:utf-8
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
@@ -105,13 +105,13 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
-ROOT_URLCONF = 'myproject.urls'
+ROOT_URLCONF = 'nfc.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'myproject.wsgi.application'
+WSGI_APPLICATION = 'nfc.wsgi.application'
 
 TEMPLATE_DIRS = (
-    '/home/shortcode7/webapps/django/myproject/myproject/templates',
+    '/home/shortcode7/webapps/django/nfc/nfc/templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -133,7 +133,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.flatpages',
     'django.contrib.admindocs',
-    'myproject.apps.customers',  
+    'nfc.apps.customers',  
     'sorl.thumbnail',
 )
 

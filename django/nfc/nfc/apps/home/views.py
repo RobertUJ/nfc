@@ -2,8 +2,8 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.core.mail import EmailMultiAlternatives # Para enviar HTML
 from django.http import HttpResponseRedirect
-from myproject.apps.home.forms  import ContactForm
-from myproject.apps.customers.models import Customer, ZipCode, Branch
+from nfc.apps.home.forms  import ContactForm
+from nfc.apps.customers.models import Customer, ZipCode, Branch
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 

@@ -1,20 +1,23 @@
 # Django settings for nfc project.
-
-DEBUG = True
+#encoding:utf-8
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
+import os
+PATH_PROJECT = os.path.dirname(os.path.realpath(__file__))
+
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+     ('Roberto Urita Jimenez -- @robertuj', 'roberto@newemage.com'),
 )
 
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'shortcode7_db',                      # Or path to database file if using sqlite3.
+        'USER': 'shortcode7_db',                      # Not used with sqlite3.
+        'PASSWORD': '28ce320b',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
@@ -45,25 +48,29 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = '/home/shortcode7/webapps/static_media/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = 'http://nfc.701010.com/media/'
+
+#ADMIN_MEDIA_PREFIX = 'http://nfc.701010.com/admin_media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = '/home/shortcode7/webapps/static/'
+
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
+STATIC_URL = 'http://nfc.701010.com/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
+    '/home/shortcode7/webapps/static/',
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -78,7 +85,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '1pys@(cj-qp*ff@erqqe(x@n)w5b$h+w4*)6a=w8(nmc#&amp;(m9m'
+SECRET_KEY = '7%kn3$vv*oo!elzj#3d3hu7=ef^@nogg5j(6o_b*@)(y3(qtb5'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -95,6 +102,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
 ROOT_URLCONF = 'nfc.urls'
@@ -103,22 +111,30 @@ ROOT_URLCONF = 'nfc.urls'
 WSGI_APPLICATION = 'nfc.wsgi.application'
 
 TEMPLATE_DIRS = (
+    '/home/shortcode7/webapps/django/nfc/nfc/templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 )
 
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    'django.core.context_processors.request',
+)
+
 INSTALLED_APPS = (
     'django.contrib.auth',
+    'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'django.contrib.flatpages',
+    'django.contrib.admindocs',
+    'nfc.apps.customers',  
+    'sorl.thumbnail',
 )
 
 # A sample logging configuration. The only tangible logging

@@ -5,17 +5,17 @@ import settings
 from django.contrib import admin
 admin.autodiscover()
 
-handler404 = 'myproject.apps.home.views.my_custom_404_view'
+handler404 = 'nfc.apps.home.views.my_custom_404_view'
 
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'myproject.views.home', name='home'),
-    # url(r'^myproject/', include('myproject.foo.urls')),
+    # url(r'^$', 'nfc.views.home', name='home'),
+    # url(r'^nfc/', include('nfc.foo.urls')),
 
     #import urls.py's apps
-     url(r'^',include('myproject.apps.home.urls')),
-     url(r'^',include('myproject.apps.customers.urls')),
+     url(r'^',include('nfc.apps.home.urls')),
+     url(r'^',include('nfc.apps.customers.urls')),
      url('^pages/',include('django.contrib.flatpages.urls')),	
      
 

@@ -5,8 +5,8 @@ from django.http import HttpResponseRedirect
 from django.http import Http404
 from django.http import HttpResponse
 
-from myproject.apps.customers.models import ZipCode,Customer,Branch,PhotoGallery 
-from myproject.apps.customers.forms import formInfoPhone
+from nfc.apps.customers.models import ZipCode,Customer,Branch,PhotoGallery 
+from nfc.apps.customers.forms import formInfoPhone
 
 
 def get_customer(request,customer,zipcode,branch):

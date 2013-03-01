@@ -1,6 +1,6 @@
 from django.contrib.admin import *
 from django.contrib import admin
-from myproject.apps.customers.models import ZipCode,Customer,Branch,PhotoGallery,phone_info
+from nfc.apps.customers.models import ZipCode,Customer,Branch,PhotoGallery,phone_info
 from sorl.thumbnail.admin import AdminImageMixin
 from django.contrib.admin.filters import AllValuesFieldListFilter
 
