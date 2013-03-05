@@ -25,12 +25,22 @@ class BranchAdmin(AdminImageMixin, admin.ModelAdmin):
 	list_display        = ('customer_name', 'name','Title','urltobranch','tag_id')
 	list_filter         = ('ZipCode__zipcode','Customer__name','tag_id','featured',)
 	search_fields		= ('name','tag_id','slug','Title','ZipCode__zipcode','Customer__name',)
-	
+	actions = ['duplicate_event']
+	actions_on_top = True
+
 	def customer_name(self,instance):
 		return '%s' %(instance.Customer.name)
 	customer_name.short_description = "Customer Name"
 
-
+	def duplicate_event(modeladmin, request, queryset):
+		con = 0
+		for object in queryset:
+			con += 1
+			object.id = None
+			object.name += " Copy %s --  %s" % (con,request.user)
+			object.tag_id = "%s" % object.name
+			object.save()
+	duplicate_event.short_description = "Duplicate selected branch record"
 
 	def urltobranch(self,instance):
 		_url = '/%s/%s/%s/' % (instance.Customer.slug,instance.ZipCode.zipcode,instance.slug)

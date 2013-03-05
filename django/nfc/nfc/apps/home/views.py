@@ -11,23 +11,6 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def index_view(request):
 	mBranchs = Branch.objects.filter(featured=True).order_by('-id')[:8]
-	print mBranchs
-	# paginator = Paginator(mBranchs,4)
-
-	# try:
-	# 	page = request.GET.get('page')
-	# except ValueError:
-	# 	page = 1
-	
-	# try:
-	# 	mbranchs = paginator.page(page)
-	# except PageNotAnInteger, e:
-	# 	# If page is not an integer, deliver first page.
-	# 	mbranchs = paginator.page(1)
-	# except EmptyPage:
-	# 	# If page is out of range (e.g. 9999), deliver last page of results.
-	# 	mbranchs = paginator.page(paginator.num_pages)
-
 	ctx = {'branchs':mBranchs}
   	return render_to_response('home/home.html',ctx,context_instance=RequestContext(request))
 

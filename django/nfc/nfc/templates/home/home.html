@@ -57,7 +57,10 @@
 				</h4>
 				<p class="description">
 					{% autoescape off %}
-						{{b.Description|truncatewords_html:15}}
+						{% if b.Desc_featured %}
+							{{b.Desc_featured|truncatewords_html:15}}
+						{% endif %}
+						
 					{% endautoescape %}
 				</p>
 				<p>
