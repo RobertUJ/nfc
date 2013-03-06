@@ -83,7 +83,6 @@
 		<img src="{{ MEDIA_URL }}{{infobranch.Coupon}}" alt="">
 	</div>
 	<div id="frmCont">
-		
 
 		{% if infobranch.image_cupon %}
 			<img src="{{ MEDIA_URL }}{{infobranch.image_cupon}}" alt="">	
@@ -95,7 +94,13 @@
 
 
 		<a id="btnCupon" href="#">
-			Get my Coupon
+			{% if infobranch.text_cupon %}
+				{% autoescape off %}
+					{{infobranch.text_cupon}}
+				{% endautoescape %}				
+			{% else %}
+				Get my Coupon
+			{% endif %}
 		</a>
 
 		<form style="display:none;" action="." id="frmPhone" method="POST" accept-charset="utf-8">
@@ -178,7 +183,6 @@
 			}
 
 			form.submit();
-				
 		});
 
 		$("#btnCupon").on("click",function(e){

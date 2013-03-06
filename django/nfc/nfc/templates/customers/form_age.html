@@ -1,0 +1,48 @@
+{% extends 'bases/template_base.html' %}
+{% block title %} 701010 :: Age {% endblock %}
+
+{% block idbody %}id="{{infobranch.id_body}}"{% endblock idbody %}
+{% load thumbnail %}
+{% block content %}	
+
+<div class="container">
+<div class="row">
+	<div class="span4">
+		<div id="logo">
+			{% thumbnail infobranch.Logo "210x155" crop="50% center" as im %}
+	            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{infobranch.Title}}">
+	        {% empty %}
+	        	<img src="{{ MEDIA_URL }}no_logo.jpg" alt="{{b.Title}}">
+	        {% endthumbnail %}
+		</div>
+	</div>
+	<div class="span6">
+		{% if msg %}
+			<h3>{{msg}}</h3>
+			<hr>
+		{% endif %}
+
+		<form action='' name='frmAge' method='post'>
+			{% csrf_token %}
+			{{form.as_p}}
+			<input type='submit' name='btnVerifyAge' id='id_btnVerifyAge' class='btn'>
+		</form>
+
+	</div>
+</div>
+</div>
+
+{% endblock content %}
+<!-- estilos -->
+{% block footer_extrajs %}
+	
+	{% if infobranch.background_img %}
+		<style type="text/css">
+			body{
+				background:url({{ MEDIA_URL }}{{infobranch.background_img}}) top center no-repeat !important;
+			}
+		</style>
+	{% endif %}
+
+
+{% endblock footer_extrajs %}

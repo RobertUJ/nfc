@@ -22,7 +22,7 @@ class Branch(models.Model):
 	Customer 		= models.ForeignKey(Customer)
 	ZipCode 		= models.ForeignKey(ZipCode)
 	adult_required  = models.BooleanField(default=False,verbose_name=u'Adult Required')
-	age_required	= models.IntegerField(blank=True,null=True)
+	age_required	= models.IntegerField(blank=True,null=True,default=21)
 	name 			= models.CharField(max_length=255,null=False,blank=False,unique=True)
 	slug 			= models.SlugField(max_length=255,null=True,blank=True,unique=True)
 	Title 			= models.CharField(max_length=255)
@@ -48,7 +48,7 @@ class Branch(models.Model):
 	zip_code		= models.CharField(max_length=255,null=True,blank=True)
 	info_cupon		= models.TextField(blank=True,null=True)
 	image_cupon		= models.ImageField(upload_to='branch/cupon/info',blank=True,null=True)
-	text_cupon      = models.CharField(null=True,blank=True,default="Get a Coupon")
+	text_cupon      = models.CharField(null=True,blank=True,default="Get a Coupon",max_length="50")
 	latitude		= models.CharField(max_length=255,null=True,blank=True)
 	longitude		= models.CharField(max_length=255,null=True,blank=True)
 	
