@@ -6,7 +6,7 @@
 {% block content %}	
 
 <div class="container">
-<div class="row">
+<div class="row form-age">
 	<div class="span4">
 		<div id="logo">
 			{% thumbnail infobranch.Logo "210x155" crop="50% center" as im %}
@@ -18,16 +18,16 @@
 	</div>
 	<div class="span6">
 		{% if msg %}
-			<h3>{{msg}}</h3>
+			<h3 class="aviso">{{msg}}</h3>
 			<hr>
 		{% endif %}
-
+		<div id="form-ageblock">
 		<form action='' name='frmAge' method='post'>
 			{% csrf_token %}
-			{{form.as_p}}
-			<input type='submit' name='btnVerifyAge' id='id_btnVerifyAge' class='btn'>
+			<div id="age-val">{{form.as_p}}</div>
+			<input type='submit' name='btnVerifyAge' id='id_btnVerifyAge' class='btn btn-warning btn-large'>
 		</form>
-
+	</div>
 	</div>
 </div>
 </div>

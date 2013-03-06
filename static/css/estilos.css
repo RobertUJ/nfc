@@ -1,3 +1,5 @@
+/* @override http://nfc.701010.com/static/css/estilos.css */
+
 /* @override http://192.168.0.117:1234/static/css/estilos.css */
 
 /* @override http://192.168.0.117:1234/static/css/estilos.css */
@@ -305,8 +307,31 @@ a.btn_link {
 	text-indent: 500px;
 }
 
+div#age-val select{
+	width: 70px;
+}
+
+div#age-val {
+	display: inline-block;
+}
+
+div#form-ageblock {
+	margin-left: auto;
+	margin-right: auto;
+	width: 230px;
+	text-align: center;
+	font-weight: bold;
+}
+
+
+div#form-ageblock label{
+	font-weight: bold;
+	color: #009528;
+	font-size: 24px;
+	line-height: 30px;
+}
 div.container.customer {
-	background-color: #fff;
+	background-color: rgba(255,255,255,0.9);
     -moz-box-shadow: -1px 3px 20px #bfbfbf;
     -webkit-box-shadow: -1px 3px 20px #bfbfbf;
     box-shadow: -1px 3px 20px #bfbfbf;
@@ -395,13 +420,18 @@ a.btn_link:hover{
 }
 
 a#btnCupon {
-	background: url(../img/get-my-btn.png) no-repeat;
+	background: url(../img/get-my-btn.png) repeat-x;
 	display: block;
-	width: 220px;
-	height: 47px;
 	overflow: hidden;
-	text-indent: 500px;
-	line-height: 500px;
+	color: #fff;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 46px;
+	width: 220px;
+	text-align: center;
+	border-radius: 7px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
 }
 
 form#frmPhone {
@@ -412,6 +442,8 @@ form#frmPhone {
 }
 a#btnCupon:hover{
 	background-position: 0 -47px;
+	text-decoration: none;
+	text-shadow: #000000 1px 1px 0px;
 }
 
 input#btnPhone {
@@ -481,4 +513,29 @@ div.span5.texto404 {
 	width: 180px!important;
 	margin-right: 10px;
 	margin-left: 10px;
+}
+
+div.row.form-age {
+	
+	background-image: url(../img/age-login-bg.png);
+	border: 1px solid #ebebeb;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+    -moz-box-shadow: 2px 2px 5px #eaeaea;
+    -webkit-box-shadow: 2px 2px 5px #eaeaea;
+    box-shadow: 2px 2px 5px #eaeaea;
+	margin-top: 80px;
+	padding: 50px;
+}
+
+h3.aviso {
+	background-color: #009529;
+	color: #fff;
+		border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	line-height: 28px;
+	padding: 10px;
+	text-align: center;
 }
