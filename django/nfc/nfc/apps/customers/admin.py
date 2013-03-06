@@ -3,6 +3,8 @@ from django.contrib import admin
 from nfc.apps.customers.models import ZipCode,Customer,Branch,PhotoGallery,phone_info
 from sorl.thumbnail.admin import AdminImageMixin
 from django.contrib.admin.filters import AllValuesFieldListFilter
+from easy_maps.widgets import AddressWithMapWidget
+from django import forms
 
 
 class CustomerAdmin(AdminImageMixin, admin.ModelAdmin):
@@ -20,6 +22,12 @@ class PhotoGalleryInline(AdminImageMixin, admin.StackedInline):
 	extra = 0
 
 class BranchAdmin(AdminImageMixin, admin.ModelAdmin):
+	class form(forms.ModelForm):
+		class Meta:
+			widget={
+				'dir_1': AddressWithMapWidget({'class':'vTextField'})
+			}
+			
 	inlines = [PhotoGalleryInline,]
 	prepopulated_fields = {"slug": ("name",)}
 	list_display        = ('customer_name', 'name','Title','urltobranch','tag_id')
@@ -47,6 +55,8 @@ class BranchAdmin(AdminImageMixin, admin.ModelAdmin):
 		return 	'<a target="_blank" href="%s">%s</a>' % (_url,_url)
 	urltobranch.short_description = 'Url Shortcut'
 	urltobranch.allow_tags = True
+
+
 
 class phone_infoAdmin(admin.ModelAdmin):
 	list_display        = ('zipcode','area','mobile',)

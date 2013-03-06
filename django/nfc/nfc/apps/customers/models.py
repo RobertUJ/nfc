@@ -54,6 +54,10 @@ class Branch(models.Model):
 	
 	def __unicode__(self):
 		return str(self.Title)
+	
+	def full_address(self):
+		return u"%s, %s, %s" % ( self.state,self.cd,self.dir_1)
+	
 	def save(self, *args, **kwargs):
 		self.slug = slugify(self.name)
 		super(Branch,self).save(*args,**kwargs)

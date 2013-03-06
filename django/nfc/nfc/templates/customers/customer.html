@@ -4,6 +4,7 @@
 {% block idbody %}id="{{infobranch.id_body}}"{% endblock idbody %}
 
 {% block content %}	
+{% load easy_maps_tags %}
 {% load thumbnail %}
 <div class="container customer">
 	<div class="row">
@@ -38,6 +39,7 @@
 
 			{% if infobranch.show_dir %}
 				<hr>
+
 				{% if infobranch.dir_1 %}
 					<p>{{infobranch.dir_1}}</p>
 				{% endif %}
@@ -47,6 +49,26 @@
 				<p>
 				{{infobranch.cd}}, {{infobranch.state}} {{infobranch.zip_code}}
 				</p>
+
+				<!-- Button to trigger modal -->
+<a href="#myModal" role="button" class="btn" data-toggle="modal">View Map</a>
+ 
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">{{infobranch.name}}</h3>
+  </div>
+  <div class="modal-body">
+ 
+<!-- Default map with 300x400 dimensions -->
+		{% easy_map infobranch.full_address 500 300 %}
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
 			{% endif %}
 
 
@@ -140,10 +162,12 @@
 {% endif %}
 
 </div>
+
+
 {% endblock %}
 
 {% block footer_extrajs %}
-
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
 <!-- estilos -->
 {% if infobranch.background_img %}
 	<style type="text/css">

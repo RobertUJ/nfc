@@ -124,6 +124,8 @@ TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
 )
 
+EASY_MAPS_GOOGLE_KEY = 'AIzaSyBLmhBEKTGcIO49oY600jNA5V44SaLKTuk'
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.admin',
@@ -136,6 +138,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'nfc.apps.customers',  
     'sorl.thumbnail',
+    'easy_maps',
 )
 
 # A sample logging configuration. The only tangible logging
